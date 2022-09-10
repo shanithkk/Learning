@@ -18,4 +18,9 @@ func main() {
 	var boolean bool
 	var float float32
 	fmt.Println(boolean, float)
+
+	var kilometersToMars int32 = 62100000
+	kilometersToMars = 62100000
+	fmt.Println(kilometersToMars)
+
 }
