@@ -23,4 +23,6 @@ func main() {
 	kilometersToMars = 62100000
 	fmt.Println(kilometersToMars)
 
+	StringsTest()
+
 }
