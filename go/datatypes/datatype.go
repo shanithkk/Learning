@@ -25,4 +25,14 @@ func main() {
 
 	StringsTest()
 
+	var dynamic_declaration = 7
+	fmt.Println(dynamic_declaration)
+
+	direct_declaration := 8
+	fmt.Println(direct_declaration)
+
+	//Muliple Declaration
+
+	var multiple, declaration int32
+	fmt.Println(multiple, declaration)
 }
