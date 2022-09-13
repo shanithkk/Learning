@@ -35,4 +35,6 @@ func main() {
 
 	var multiple, declaration int32
 	fmt.Println(multiple, declaration)
+
+	Conversion()
 }
