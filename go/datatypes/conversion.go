@@ -28,8 +28,8 @@ func Conversion() {
 	fmt.Println(reflect.TypeOf(f))
 	fmt.Println(f)
 
-	var s string = strconv.FormatFloat(f, 'E', -1, 32)
-	fmt.Println(reflect.TypeOf(s))
-	fmt.Println(s)
+	var ex string = strconv.FormatFloat(f, 'E', -1, 32)
+	fmt.Println(reflect.TypeOf(ex))
+	fmt.Println(ex)
 
 }
