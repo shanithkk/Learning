@@ -14,4 +14,10 @@ func main() {
 		fmt.Println("Number if less than 50")
 	}
 
+	fmt.Println("Variable initialization and condition")
+
+	if x := 100; x == 100 {
+		fmt.Println("Value is ", x)
+	}
+
 }
