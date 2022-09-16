@@ -15,7 +15,7 @@ func Roman() {
 	for key := 0; key < len(splt); key++ {
 		sum += get_value(splt[key])
 	}
-	fmt.Println(sum)
+	fmt.Println("Roman Value of ", roman, "is", sum)
 }
 
 func get_value(char string) int32 {
