@@ -1,42 +1,30 @@
+/// Roman Numer to Integer
+
 fn main() {
-    let words = ["aaa","aa","aaa"];
+    let roman = "MCMXCIV";
+    let vect: Vec<char> = roman.chars().collect();
+    let mut sum = 0;
+    let lenght = vect.len();
 
-    let first = words[0];
-    let first_lenght = words[0].len();
-    let mut vec: Vec<char> = Vec::new();
-    let mut flag =false;
-    let mut res ="".to_string();
-
-    if words.len()==1{
-        res = first.to_string();
-    }
-    else{
-
-        for i in 0..first_lenght {
-            
-            for j in 1..words.len(){
-                if first.chars().nth(i) == words[j].chars().nth(i)  {
-                    flag =true;
-                }
-                else {
-                    flag = false;
-                    break;
-                }
-            }
-            if flag{
-                vec.push(first.chars().nth(i).unwrap());
-            }
-            if flag ==false {
-                break;
-            }
-        }
-        if vec.is_empty(){
-            res ="".to_string();
-        }else{
-            res = vec.iter().collect();
+    for (idx, v) in vect.iter().enumerate() {
+        if idx < (lenght - 1) && roman_value(&vect[idx]) < roman_value(&vect[idx + 1]) {
+            sum = sum - roman_value(v);
+        } else {
+            sum = sum + roman_value(v);
         }
     }
-    
+    println!("{}", sum);
+}
 
-    println!("{:?}",res);
+fn roman_value(letter: &char) -> i32 {
+    match letter {
+        'I' => 1,
+        'V' => 5,
+        'X' => 10,
+        'L' => 50,
+        'C' => 100,
+        'D' => 500,
+        'M' => 1000,
+        _ => 0,
+    }
 }
