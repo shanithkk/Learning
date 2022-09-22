@@ -23,8 +23,6 @@ func main() {
 	kilometersToMars = 62100000
 	fmt.Println(kilometersToMars)
 
-	StringsTest()
-
 	var dynamic_declaration = 7
 	fmt.Println(dynamic_declaration)
 
@@ -36,5 +34,7 @@ func main() {
 	var multiple, declaration int32
 	fmt.Println(multiple, declaration)
 
+	StringsTest()
 	Conversion()
+	Arrays()
 }
