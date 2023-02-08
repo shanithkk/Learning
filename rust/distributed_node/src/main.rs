@@ -8,11 +8,17 @@ struct Group {
     nodes: Vec<String>,
 }
 
+#[derive(Debug, Default)]
+struct Header {
+    laegest_node_count: usize,
+    group_iteration: usize,
+}
+
 #[derive(Debug)]
 struct System {
     // header contain 1.largest count of nodes present in groups and 
-    // 2. second one is for stores the iteration.
-    header: (usize, usize),
+    // 2. second one is for stores the iteration over the group.
+    header: Header,
     groups: Vec<Group>,
 }
 
@@ -26,7 +32,7 @@ impl System {
             });
         }
         System {
-            header: (0, 0),
+            header: Header::default(),
             groups,
         }
     }
@@ -35,24 +41,24 @@ impl System {
     fn add_node(&mut self, node: String) {
         // If the iteration value is equal to the length of the group array then 
         // the node will be added to any of the groups.
-        if self.header.1 == self.groups.len() {
+        if self.header.group_iteration == self.groups.len() {
             let group_index = rand::thread_rng().gen_range(0..self.groups.len());
             self.groups[group_index].nodes.push(node);
-            self.header.0 += 1;
-            self.header.1 = 1;
+            self.header.laegest_node_count += 1;
+            self.header.group_iteration = 1;
         } 
         // else the if iteration value is less than to the length of the group array then
         // we find a group that has have less nodes.
-        else if self.header.1 < self.groups.len() {
+        else if self.header.group_iteration < self.groups.len() {
             let mut group_index;
             loop {
                 group_index = rand::thread_rng().gen_range(0..self.groups.len());
-                if self.groups[group_index].nodes.len() <= self.header.0 {
+                if self.groups[group_index].nodes.len() <= self.header.laegest_node_count {
                     break;
                 }
             }
             self.groups[group_index].nodes.push(node);
-            self.header.1 += 1;
+            self.header.group_iteration += 1;
         }
     }
 }
@@ -62,7 +68,7 @@ fn main() {
     let mut system = System::new(10);
 
     // Adding nodes 
-    for i in 1..=29 {
+    for i in 1..=30 {
         system.add_node(i.to_string());
     }
 
